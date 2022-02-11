@@ -100,6 +100,7 @@
   become_user: postgres
   shell:
     cmd: /usr/lib/postgresql/bin/psql -f /tmp/00-schema.sql
+  when: not ebssurrogate_mode
 
 # Add fail2ban filter
 - name: import jail.d/pgbouncer.conf
